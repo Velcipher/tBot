@@ -4,6 +4,19 @@ REGISTRY=ilonamohilnikova
 VERSION=v1.0.6-$(shell git rev-parse --short HEAD)
 TARGETOS=linux
 TARGETARCH=amd64 
+
+
+UNAME_P := $(shell uname -p)
+ifeq ($(UNAME_P),unknown)
+	UNAME_P:=$(shell uname -m)
+endif
+ifeq ($(UNAME_P),x86_64)
+	TARGETARCH=amd64
+endif
+ifneq ($(filter arm%,$(UNAME_P)),)
+	TARGETARCH:=arm64
+endif
+
 format:
 	gofmt -s -w ./
 
@@ -21,12 +34,25 @@ test:
 	go test -v
 
 image:
+	@echo ${TARGETARCH}
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
-	rm -rf tbot
+	(docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} || true) && (rm -rf kbot || true)
+
+linux: 
+	make TARGETOS=linux TARGETARCH=amd64 build
+
+windows:
+	make TARGETOS=windows TARGETARCH=amd64 build
+
+arm:
+	make TARGETOS=linux TARGETARCH=arm64 build
+
+macos:
+	make TARGETOS=darwin build
 
 
