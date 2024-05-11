@@ -24,7 +24,9 @@ spec:
         - name: TELE_TOKEN
           valueFrom: 
             secretKeyRef:
-              name: token-secret
+              name: secret-file
               key: TELE_TOKEN
+         
+           
         
         
