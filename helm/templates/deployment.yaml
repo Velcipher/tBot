@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}-deployment
+  labels:
+    app: test
+    env: prod
+spec:
+  replicas: {{.Values.replicasNumber}}
+  selector:
+    matchLabels:
+      project: new
+  template:
+    metadata:
+      labels:
+        project: new
+    spec:
+      containers:
+      - name: {{.Release.Name}}
+        image: {{ .Values.image.repository }}/{{ .Chart.Name }}:{{ .Values.image.tag }}-{{ .Values.image.arch | default "amd64"}}
+        ports:
+        - containerPort: 80
+        env:
+        - name: TELE_TOKEN
+          valueFrom: 
+            secretKeyRef:
+              name: token-secret
+              key: TELE_TOKEN
+        
+        

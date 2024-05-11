@@ -1,0 +1,11 @@
+image:
+  repository: "ilonamohilnikova"
+  tag: "v1.0.6-39ff87c"
+  arch: amd64
+
+replicasNumber: 1
+
+name: demo
+
+secret: 
+  env: "TELE_TOKEN"
