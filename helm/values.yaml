@@ -1,6 +1,6 @@
 image:
   repository: "ilonamohilnikova"
-  tag: "tbot-8256b53"
+  tag: "v.1.0.8"
   arch: amd64
 replicasNumber: 1
 name: demo
