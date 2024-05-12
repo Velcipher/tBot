@@ -1,11 +1,8 @@
 image:
   repository: "ilonamohilnikova"
-  tag: "v1.0.6-39ff87c"
+  tag: "tbot-ebb689c"
   arch: amd64
-
 replicasNumber: 1
-
 name: demo
-
-secret: 
+secret:
   env: "TELE_TOKEN"
