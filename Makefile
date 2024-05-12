@@ -1,6 +1,7 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=ilonamohilnikova
-VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+VERSION=v1.0.8
+# $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 # VERSION=v1.0.7-$(shell git rev-parse --short HEAD)
 TARGETOS=linux
 TARGETARCH=amd64 
@@ -41,7 +42,7 @@ push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
-	(docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} || true) && (rm -rf kbot || true)
+	(docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} || true) && (rm -rf tbot || true)
 
 linux: 
 	make TARGETOS=linux TARGETARCH=amd64 build
