@@ -1,5 +1,5 @@
 image:
-  repository: "ilonamohilnikova"
+  repository: ghcr.io/velcipher
   tag: "v1.0.9-e4cd9b8"
   arch: amd64
 replicasNumber: 1
