@@ -1,6 +1,6 @@
 APP=$(shell basename $(shell git remote get-url origin))
 REGISTRY=ilonamohilnikova
-VERSION=v1.0.8
+VERSION=v1.0.9
 # $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 # VERSION=v1.0.7-$(shell git rev-parse --short HEAD)
 TARGETOS=linux
