@@ -1,6 +1,7 @@
 image:
   repository: ghcr.io/velcipher
   tag: "v1.0.9-7c3550c"
+  os: linux
   arch: amd64
 replicasNumber: 1
 name: demo
