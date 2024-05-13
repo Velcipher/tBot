@@ -24,9 +24,13 @@ spec:
         - name: TELE_TOKEN
           valueFrom: 
             secretKeyRef:
-              name: secret-file
+              name: tele-token
               key: TELE_TOKEN
-         
-           
+      volumeMounts:
+      - name: secret-volume
+        readOnly: true
+        mountPath: "/etc/secret-volume"
+        
+        
         
         
