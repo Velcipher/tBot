@@ -1,6 +1,6 @@
 image:
   repository: "ilonamohilnikova"
-  tag: "v1.0.9-e4cd9b8"
+  tag: "v1.0.9-33f9880"
   arch: amd64
 replicasNumber: 1
 name: demo
