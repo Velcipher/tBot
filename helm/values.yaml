@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/velcipher
-  tag: "v1.0.9-c3a4506"
+  tag: "v1.0.9-c54217b"
   os: linux
   arch: amd64
 replicasNumber: 1
